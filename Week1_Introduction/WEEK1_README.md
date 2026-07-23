@@ -36,3 +36,5 @@ The mini-project is a small case study: a family of 7 is looking for a house in 
    pip install -r requirements.txt
    ```
 3. Open the notebooks in order (Day 1 → Day 5) and run the cells from top to bottom.
+
+**NOTE:** the old files in this folders are kept to show the dates they were uploaded in only. All my final works are inside the seperated folders.
