@@ -1,0 +1,27 @@
+[33m4805413[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m week 2 day 1 notebook and readme
+ Week1_Introduction/Day1_env_setup.ipynb            |   68 [31m-[m
+ Week1_Introduction/Day2_python_basics.ipynb        |   18 [32m+[m[31m-[m
+ .../Day3_NumPy_ Numerical Computing.ipynb          |  489 [31m-----[m
+ Week1_Introduction/Day4_Panda_Tabular Data.ipynb   | 2259 [31m--------------------[m
+ .../Day_1_Enviorment_Setups/Day1_README.md         |    2 [32m+[m[31m-[m
+ Week1_Introduction/Day_3_Numpy/Day3_README.md      |    2 [32m+[m[31m-[m
+ Week1_Introduction/WEEK1_README.md                 |   52 [32m+[m[31m-[m
+ Week1_Introduction/requirements.txt                |  Bin [31m4170[m -> [32m0[m bytes
+ .../Day1_Descriptive_Statistics/Day1_README.md     |   62 [32m+[m
+ .../Day_1_Descriptive Statistics (1).ipynb         | 1412 [32m++++++++++++[m
+ Week2_MathFoundations_and_EDA/heart.csv            | 1026 [32m+++++++++[m
+ 11 files changed, 2525 insertions(+), 2865 deletions(-)
+[33mac098cf[m Reorganize Week 1 notebooks into individual folders with READMEs
+ .../Day_1_Enviorment_Setups/Day1_README.md         |   18 [32m+[m
+ .../Day_1_Enviorment_Setups/Day1_env_setup.ipynb   |   68 [32m+[m
+ .../Day_1_Enviorment_Setups/requirements.txt       |  Bin [31m0[m -> [32m4170[m bytes
+ .../Day_2_Python_Basics/Day2_README.md             |   17 [32m+[m
+ .../Day_2_Python_Basics/Day2_python_basics.ipynb   |  214 [32m++[m
+ .../Day3_NumPy_ Numerical Computing.ipynb          |  489 [32m+++++[m
+ Week1_Introduction/Day_3_Numpy/Day3_README.md      |   21 [32m+[m
+ .../Day_4_Pandas/Day4_Panda_Tabular Data.ipynb     | 2267 [32m++++++++++++++++++++[m
+ Week1_Introduction/Day_4_Pandas/Day4_README.md     |   30 [32m+[m
+ Week1_Introduction/Day_5_Matplotlib/Day5_README.md |   32 [32m+[m
+ .../Day5__Matplotlib___Week_1_Mini-project.ipynb   | 1019 [32m+++++++++[m
+ Week1_Introduction/WEEK1_README.md                 |   47 [32m+[m[31m-[m
+ 12 files changed, 4210 insertions(+), 12 deletions(-)
