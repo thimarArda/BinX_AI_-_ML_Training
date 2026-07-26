@@ -1,4 +1,4 @@
-# Day 1 - Environment Setup 🛠️
+# Day 1 - Environment Setup 
 
 ## What this is about
 This is just the very first notebook of the BinX AI & ML training program. It's a quick test to make sure the Python environment and the main libraries are installed correctly before starting any real work.

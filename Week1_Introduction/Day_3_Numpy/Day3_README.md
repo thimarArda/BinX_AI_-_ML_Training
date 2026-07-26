@@ -1,4 +1,4 @@
-# Day 3 - NumPy: Numerical Computing 🔢
+# Day 3 - NumPy: Numerical Computing 
 
 ## What the notebook is about
 This notebook is for practicing NumPy basics. It covers creating arrays, indexing, slicing, boolean masking, and broadcasting.
