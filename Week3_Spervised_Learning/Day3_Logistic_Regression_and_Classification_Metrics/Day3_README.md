@@ -1,6 +1,6 @@
 # Day 3 – Logistic Regression & Classification Metrics
 
-A notebook that teaches **Logistic Regression** (a machine learning model for classification) and how to check if it's performing well using Evaluation Metrecies.
+This notebook  teaches **Logistic Regression** which is a machine learning model for classification and how to check if it's performing well using Evaluation Metrecies.
 
 ## Structure of the Notebook
 
@@ -21,7 +21,7 @@ Explains and calculates the key metrics used to judge a classifier:
 - AUC-ROC Curve
 
 **Section 4 – Hands-on Lab**
-Practice exercise using a diabetes dataset — train a model, generate a confusion matrix, compute precision/recall/F1, and interpret what the results actually mean in a real-world (medical) context.
+Practice exercise using a diabetes dataset — train a model, generate a confusion matrix, compute precision/recall/F1, and interpret what the results  mean in a medical context(Breast cancer).
 
 ## How to use it
 
@@ -30,7 +30,7 @@ Practice exercise using a diabetes dataset — train a model, generate a confusi
    ```
    pip install scikit-learn matplotlib
    ```
-3. Run the cells **from top to bottom, in order** — later cells depend on variables (like `model`, `X_train`, `predictions`) created earlier.
+3. Run the cells **from top to bottom, in order**, later cells depend on variables (like `model`, `X_train`, `predictions`) created earlier.
 4. Read the markdown (text) cells for explanations, then run the code cells right after them to see the results.
 
 
