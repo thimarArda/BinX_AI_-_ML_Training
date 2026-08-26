@@ -1,0 +1,18 @@
+# Python 3.10–3.13 required
+
+# Deep learning
+tensorflow>=2.21        # use tensorflow[and-cuda] instead for GPU support on Linux/WSL2
+
+# Data handling
+pandas
+numpy
+
+# Visualization
+matplotlib
+seaborn
+
+# Classic ML / preprocessing / metrics
+scikit-learn
+
+# Notebook environment
+jupyter
