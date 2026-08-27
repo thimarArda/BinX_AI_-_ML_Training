@@ -1,0 +1,117 @@
+Absolutely. Since today's work focused on **systematic neural-network tuning, callbacks, evaluation, and Sprint 1 review**, the README should show not just what you coded, but **what you experimented with and what you learned**.
+
+# Day 5 — Neural Network Tuning, Evaluation & Sprint Review
+
+## Overview
+
+Today I focused on tuning and evaluating the Heart Disease classification neural network using TensorFlow/Keras. I continued from the previous neural network models and systematically experimented with different hyperparameters and training techniques to improve the model's performance.
+
+The main goal was to understand how different configurations affect validation performance and to identify the main limitations of the current model.
+
+## What I Did
+
+* Continued working with the large Heart Disease dataset.
+* Built and trained a baseline neural network.
+* Experimented with different **network sizes**.
+* Tuned the **learning rate** using the Adam optimizer.
+* Experimented with different **Dropout rates**.
+* Tested different **batch sizes**.
+* Used **EarlyStopping** to stop training when validation loss stopped improving.
+* Used **ModelCheckpoint** to save the best-performing model.
+* Experimented with **ReduceLROnPlateau** to reduce the learning rate when training stopped improving.
+* Compared validation loss across different experiments.
+* Evaluated the models using:
+
+  * Accuracy
+  * Precision
+  * Recall
+  * F1-score
+  * Confusion matrix
+* Compared the tuned models with the original baseline.
+* Analyzed overfitting and the effect of class imbalance on the results.
+
+## Hyperparameter Tuning
+
+The tuning process followed a **one-variable-at-a-time** approach. This allowed me to understand the effect of each hyperparameter without changing several factors simultaneously.
+
+The main parameters explored were:
+
+| Hyperparameter | Experiments                 |
+| -------------- | --------------------------- |
+| Learning Rate  | `0.001`, `0.0005`, `0.0001` |
+| Network Size   | `64 → 32`, `128 → 64`       |
+| Dropout        | `0.2`, `0.3`, `0.5`         |
+| Batch Size     | `16`, `32`, `64`            |
+
+EarlyStopping was also used during training to avoid unnecessary epochs and reduce overfitting.
+
+## Callbacks
+
+### EarlyStopping
+
+EarlyStopping monitored the validation loss and stopped training when it stopped improving.
+
+```python
+EarlyStopping(
+    monitor="val_loss",
+    patience=5,
+    restore_best_weights=True
+)
+```
+
+### ModelCheckpoint
+
+ModelCheckpoint was used to save the model with the best validation loss during training.
+
+```python
+ModelCheckpoint(
+    "best_model.keras",
+    monitor="val_loss",
+    save_best_only=True
+)
+```
+
+### ReduceLROnPlateau
+
+ReduceLROnPlateau was explored as a way to reduce the learning rate when validation performance stopped improving.
+
+```python
+ReduceLROnPlateau(
+    monitor="val_loss",
+    factor=0.2,
+    patience=3,
+    min_lr=1e-6
+)
+```
+
+## Evaluation
+
+The models were evaluated using more than accuracy because the dataset is highly imbalanced.
+
+The baseline model achieved approximately **91% accuracy**, but its performance on the Heart Disease class was much weaker:
+
+* Heart Disease Recall: **10%**
+* Heart Disease F1-score: **0.16**
+
+The Dropout and EarlyStopping models also achieved approximately **91% accuracy**, but their Heart Disease recall decreased to **4%**.
+
+This showed that the high accuracy was largely influenced by the majority **No Heart Disease** class.
+
+## Results & Findings
+
+The hyperparameter experiments did not produce a significant improvement in validation loss or overall test accuracy.
+
+The most important finding was that **increasing the network size, changing the learning rate, adding Dropout, or using callbacks did not solve the main weakness of the model**.
+
+The major limitation is the imbalance between the two classes. The model performs very well at identifying patients without heart disease but struggles to identify patients who actually have heart disease.
+
+Therefore, future improvements should focus on **minority-class detection**, rather than simply trying to increase overall accuracy.
+
+Possible next steps include:
+
+* Using class weights.
+* Adjusting the classification threshold.
+* Further analyzing the confusion matrix.
+* Comparing additional evaluation metrics focused on the minority class.
+
+
