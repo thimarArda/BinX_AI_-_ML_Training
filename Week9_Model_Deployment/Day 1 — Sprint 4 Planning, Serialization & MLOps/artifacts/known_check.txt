@@ -1,0 +1,1 @@
+I do not recognize this payment.	card_payment_not_recognised
