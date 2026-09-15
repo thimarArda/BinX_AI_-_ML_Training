@@ -1,2 +1,5 @@
 Project 1/notebooks/Heart_Disease_2nd_Noebook.ipynb
 *.zip
+__pycache__/
+*.pyc
+venv/
