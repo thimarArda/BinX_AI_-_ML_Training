@@ -1,6 +1,7 @@
 import re
 
 import joblib
+import nltk
 import pandas as pd
 import streamlit as st
 from nltk.corpus import stopwords
@@ -11,9 +12,20 @@ from nltk.stem import WordNetLemmatizer
 st.set_page_config(page_title="Banking Intent Classifier", page_icon="🏦")
 
 
+# --- Download NLTK data on first run in this container ---
+@st.cache_resource
+def download_nltk_data():
+    nltk.download("stopwords")
+    nltk.download("punkt")
+    nltk.download("punkt_tab")
+    nltk.download("wordnet")
+    nltk.download("omw-1.4")
+
+
+download_nltk_data()
+
+
 # --- Load the same serialized artifacts the FastAPI service uses ---
-# @st.cache_resource means this only runs once, not on every widget interaction
-# (Streamlit re-runs the whole script top-to-bottom every time you touch a widget).
 @st.cache_resource
 def load_artifacts():
     model = joblib.load("artifacts/model.joblib")
@@ -69,9 +81,6 @@ if st.button("Predict intent", type="primary"):
         else:
             X = vectorizer.transform([cleaned_text])
 
-            # Same guardrail as the FastAPI /predict endpoint: an all-zero
-            # TF-IDF vector means no real signal, so don't show a fabricated
-            # confident-looking guess.
             if X.nnz == 0:
                 st.warning(
                     "⚠️ This message shares no vocabulary with the training "
@@ -84,7 +93,6 @@ if st.button("Predict intent", type="primary"):
                 pred_label = label_encoder.inverse_transform([pred_idx])[0]
                 st.success(f"**Predicted intent:** `{pred_label}`")
 
-                # --- Supporting visualization: top-5 predicted probabilities ---
                 if hasattr(model, "predict_proba"):
                     proba = model.predict_proba(X)[0]
                     top5_idx = proba.argsort()[-5:][::-1]
