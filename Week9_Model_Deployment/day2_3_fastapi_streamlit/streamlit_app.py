@@ -25,12 +25,15 @@ def download_nltk_data():
 download_nltk_data()
 
 
-# --- Load the same serialized artifacts the FastAPI service uses ---
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 @st.cache_resource
 def load_artifacts():
-    model = joblib.load("artifacts/model.joblib")
-    vectorizer = joblib.load("artifacts/vectorizer.joblib")
-    label_encoder = joblib.load("artifacts/label_encoder.joblib")
+    model = joblib.load(os.path.join(BASE_DIR, "artifacts", "model.joblib"))
+    vectorizer = joblib.load(os.path.join(BASE_DIR, "artifacts", "vectorizer.joblib"))
+    label_encoder = joblib.load(os.path.join(BASE_DIR, "artifacts", "label_encoder.joblib"))
     return model, vectorizer, label_encoder
 
 
